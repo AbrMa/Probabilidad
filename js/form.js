@@ -55,7 +55,7 @@ function calculate() {
             }
             if (answerExists === true) {
                 let notSelectedMarbles = totalMarbles - numberSelectedMarblesColor;
-                probability -= (combinatorial(numberSelectedMarblesColor, 0) * combinatorial(notSelectedMarbles, extracredMarbles)) / combinatorial(totalMarbles, extracredMarbles);
+                probability -= combinatorial(notSelectedMarbles, extracredMarbles) / combinatorial(totalMarbles, extracredMarbles);
                 swal({
                     icon: "success",
                     title: "La probabilidad es de  " + probability
