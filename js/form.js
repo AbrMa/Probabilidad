@@ -46,7 +46,7 @@ function calculate() {
                 let numid = "num" + i.toString();
                 let currentNumber = document.getElementById(numid).value;
                 if (validate(currentNumber) === true) {
-                    totalMarbles += currentNumber;
+                    totalMarbles += parseInt(currentNumber, 10);
                 }
                 else {
                     answerExists = false;
@@ -54,7 +54,8 @@ function calculate() {
                 }
             }
             if (answerExists === true) {
-                //probability -= (combinatorial(numberSelectedMarblesColor, 0) * combinatorial(totalMarbles - extracredMarbles, extracredMarbles)) / combinatorial(totalMarbles, extracredMarbles);
+                let notSelectedMarbles = totalMarbles - numberSelectedMarblesColor;
+                probability -= (combinatorial(numberSelectedMarblesColor, 0) * combinatorial(notSelectedMarbles, extracredMarbles)) / combinatorial(totalMarbles, extracredMarbles);
                 swal({
                     icon: "success",
                     title: "La probabilidad es de  " + probability
@@ -65,8 +66,9 @@ function calculate() {
 }
 
 function combinatorial(n, k) {
-    if(n == 0)
+    if(n == 0) {
         return 0;
+    }
     return (factorial(n)) / (factorial(k) * factorial(n - k));
 }
 
