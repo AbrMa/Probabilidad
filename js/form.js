@@ -72,7 +72,7 @@ function factorial(n) {
 
     let fac = 1;
     let x;
-    for (x = n; x !== 1; x--) {
+    for (x = n; x > 1; x--) {
         fac *= x;
     }
     return fac;
