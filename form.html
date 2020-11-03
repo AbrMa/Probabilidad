@@ -52,9 +52,9 @@
                         <h5 class="card-title text-center">Ingresa Datos</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="text" id="colores" class="form-control" placeholder="N&uacute;mero de colores"
+                                <input type="text" id="colorNumber" class="form-control" placeholder="N&uacute;mero de colorNumber"
                                     required autofocus>
-                                <label for="colores">N&uacute;mero de colores</label>
+                                <label for="colorNumber">N&uacute;mero de colores</label>
                             </div>
 
                             <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" onclick="generateBoxes()">Genera casillas para colores</button>
@@ -63,8 +63,11 @@
 
                             <div class="form-label-group" id="colors">
                             </div>
+
+                            <div class="form-label-group" id = "selectColors">
+                            </div>
                             
-                            <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase">Calcular</button>
+                            <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" onclick="calculate()"> Calcular </button>
 
                         </form>
                     </div>
