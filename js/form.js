@@ -1,5 +1,5 @@
 function validate(n) {
-    if (isNaN(n) || n <= 0) {
+    if (isNaN(n) || n < 0) {
         swal({
             icon: "error",
             title: "Datos invalidos"
@@ -12,7 +12,6 @@ function validate(n) {
 function generateBoxes() {
 
     let totalfeilds = document.getElementById("colorNumber").value;
-
     if (validate(totalfeilds) === true) {
         swal({
             icon: "info",
@@ -70,6 +69,7 @@ function combinatorial(n, k) {
 }
 
 function factorial(n) {
+
     let fac = 1;
     let x;
     for (x = n; x !== 1; x--) {
