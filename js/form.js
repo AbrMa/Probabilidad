@@ -9,25 +9,46 @@ function validate(n) {
     return true;
 }
 
+function validateMarbels(n, total) {
+    if (n <= total) {
+        return true;
+    }
+    else {
+        swal({
+            icon: "error",
+            title: "El num de canicas tomadas no puede ser mayor a la suma de las canicas"
+        })
+        return false;
+    }
+}
+
 function generateBoxes() {
 
     let totalfeilds = document.getElementById("colorNumber").value;
     if (validate(totalfeilds) === true) {
-        swal({
-            icon: "info",
-            title: "El num. de casillas a generar es " + totalfeilds
-        })
-        let marbleColors = "";
-        let marbleColorsSelect = '<select class="form-control selectButtonColor" id="selectedColor"> <option id = "SC">Seleccione Color</option>';
-        let i;
-        for (i = 1; i <= totalfeilds; i++) {
-            marbleColors += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="N&uacute;mero de canicas del color ' + i + '" required autofocus><label for="num' + i + '">N&uacute;mero de canicas de color ' + i + '</label></div>'
-            marbleColorsSelect += '<option id = "color' + i + '">' + i + '</option>';
+        if (totalfeilds > 0) {
+            swal({
+                icon: "info",
+                title: "El num. de casillas a generar es " + totalfeilds
+            })
+            let marbleColors = "";
+            let marbleColorsSelect = '<select class="form-control selectButtonColor" id="selectedColor"> <option id = "SC">Seleccione Color</option>';
+            let i;
+            for (i = 1; i <= totalfeilds; i++) {
+                marbleColors += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="N&uacute;mero de canicas del color ' + i + '" required autofocus><label for="num' + i + '">N&uacute;mero de canicas de color ' + i + '</label></div>'
+                marbleColorsSelect += '<option id = "color' + i + '">' + i + '</option>';
+            }
+            marbleColors += '<hr> <div class="form-label-group"> <input type="text" id="extractedMarbles" class="form-control" placeholder="N&uacute;mero de colorNumber" required autofocus><label for="extractedMarbles">N&uacute;mero de canicas a extraer</label></div>';
+            marbleColorsSelect += '</select> ';
+            document.getElementById("colors").innerHTML = marbleColors;
+            document.getElementById("selectColors").innerHTML = marbleColorsSelect;
         }
-        marbleColors += '<hr> <div class="form-label-group"> <input type="text" id="extractedMarbles" class="form-control" placeholder="N&uacute;mero de colorNumber" required autofocus><label for="extractedMarbles">N&uacute;mero de canicas a extraer</label></div>';
-        marbleColorsSelect += '</select> ';
-        document.getElementById("colors").innerHTML = marbleColors;
-        document.getElementById("selectColors").innerHTML = marbleColorsSelect;
+        else {
+            swal({
+                icon: "error",
+                title: "El num. de casillas debe ser mayor  a 0"
+            })
+        }
     }
 }
 
@@ -53,7 +74,7 @@ function calculate() {
                     break;
                 }
             }
-            if (answerExists === true) {
+            if (answerExists === true && validateMarbels(extracredMarbles, totalMarbles) === true) {
                 let notSelectedMarbles = totalMarbles - numberSelectedMarblesColor;
                 probability -= combinatorial(notSelectedMarbles, extracredMarbles) / combinatorial(totalMarbles, extracredMarbles);
                 swal({
@@ -66,7 +87,7 @@ function calculate() {
 }
 
 function combinatorial(n, k) {
-    if(n == 0) {
+    if (n == 0) {
         return 0;
     }
     return (factorial(n)) / (factorial(k) * factorial(n - k));
