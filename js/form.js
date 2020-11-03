@@ -65,6 +65,8 @@ function calculate() {
 }
 
 function combinatorial(n, k) {
+    if(n == 0)
+        return 0;
     return (factorial(n)) / (factorial(k) * factorial(n - k));
 }
 
