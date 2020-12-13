@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootsrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- CSS for index -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/form.css">
+    <!-- Custom fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+        rel="stylesheet">
+    <title>Probabilidad</title>
+    
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Programa probabilidad</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <!-- 
+                        <a class="nav-link" href="#">Regresar a la p&aacute;gina principal</a>
+                        -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <br> <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Ingresa Datos</h5>
+                        <form class="form-signin">
+                            <div class="form-label-group">
+                                <input type="text" id="totalComputers" class="form-control" placeholder="Total de computadoras"required autofocus>
+                                <label for="totalComputers">Total de computadoras</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="text" id="defectiveComputers" class="form-control" placeholder="Computadoras defectuosas"required autofocus>
+                                <label for="defectiveComputers">Computadoras defectuosas</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="text" id="chosenComputers" class="form-control" placeholder="Computadoras escogidas"required autofocus>
+                                <label for="chosenComputers">Computadoras escogidas</label>
+                            </div>
+
+                            <hr>
+                            
+                            <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" onclick="calculate()"> Calcular </button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!-- Jquery -->
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <!-- Bootsrap JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/sweetalert.min.js"></script>
+    <!--form JS-->
+    <script src="./js/form.js"></script>
+</body>
+
+</html>
