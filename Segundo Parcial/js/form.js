@@ -12,8 +12,13 @@ function validate(n, dato) {
 
 function calculate() {  
     let totalComputers = document.getElementById("totalComputers").value;
-    let defectiveComputes = document.getElementById("defectiveComputers").value;
+    let defectiveComputers = document.getElementById("defectiveComputers").value;
     let chosenComputers = document.getElementById("chosenComputers").value;
+    let chosenProbability = document.getElementById("chosenProbability").value;
+    alert(totalComputers+defectiveComputers);
+    //let probability = combinatorial(defectiveComputers,chosenProbability) * combinatorial(totalComputers-defectiveComputers,chosenComputers-chosenProbability);
+    //let probability = probability / combinatorial(totalComputers,chosenComputers);
+
     /*
     if (validate(totalComputers, "Total computadoras") === true && validate(defectiveComputes, "Computadoras defectuosas") === true && validate(chosenComputers, "Computadoras escogidas") === true) {
 
