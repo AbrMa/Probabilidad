@@ -16,13 +16,11 @@ function calculate() {
     let chosenComputers = document.getElementById("chosenComputers").value;
     let chosenProbability = document.getElementById("chosenProbability").value;
     let probability = combinatorial(defectiveComputers,chosenProbability) * combinatorial(totalComputers-defectiveComputers,chosenComputers-chosenProbability);
-    let probability = probability / combinatorial(totalComputers,chosenComputers);    
-    if (validate(totalComputers, "total de computadoras") && validate(defectiveComputers, "computadoras defectuosas") && validate(chosenComputers, "computadoras escogidas") && validate(chosenProbability, "probabilidad elegida") ) {
+    probability = probability / combinatorial(totalComputers,chosenComputers);    
+    /*if (validate(totalComputers, "total de computadoras") && validate(defectiveComputers, "computadoras defectuosas") && validate(chosenComputers, "computadoras escogidas") && validate(chosenProbability, "probabilidad elegida") ) {
         //  ejemplo
-        let x = combinatorial(parseInt(defectiveComputers),parseInt(chosenProbability)) * combinatorial(parseInt(totalComputers)-parseInt(defectiveComputers),parseInt(chosenComputers)-parseInt(chosenProbability));
-        x = x / combinatorial(parseInt(parseInt(totalComputers),parseInt(chosenComputers));
-        alert(x);
-    }
+        
+    }*/
 }
 
 function combinatorial(n, k) {
