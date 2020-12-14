@@ -36,7 +36,7 @@ function calculate() {
         else {
             swal({
                 icon: "error",
-                title: "Las computadoras escogidas/defectuosas deben ser menores o iguales a las totales "
+                title: "Las computadoras escogidas/defectuosas deben ser menores o iguales a las totales, la probabilidad escogida debe ser menor o igual a las defectuosas "
             }) 
         }
     }
