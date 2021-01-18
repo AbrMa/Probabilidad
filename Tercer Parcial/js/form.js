@@ -23,9 +23,36 @@ function calculate() {
             answer.push(bi);
             sum += bi;
         }
-        alert("valores (bi) de 0 hasta n " + answer );
-        alert("valor (bi) en x " + answer[x]);
-        alert("suma de todas las (bi)  " + sum);
+        //alert("valores (bi) de 0 hasta n " + answer );
+        //alert("valor (bi) en x " + answer[x]);
+        swal({
+            icon: "success",
+            title: answer[x]
+        })
+        //alert("suma de todas las (bi)  " + sum);
+        
+        // pruebas con mychart
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: answer,
+                datasets: [{
+                    label: 'Probability',
+                    data: answer,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
     }
 }
 
