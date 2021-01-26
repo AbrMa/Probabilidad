@@ -22,8 +22,8 @@ function generateBoxes()
             let avionesPista = "";
             let i;
             for (i = 1; i <= totalfeilds; i++) {
-                probabilidadPista += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="Probabilidad de la pista ' + i + '" required autofocus><label for="num' + i + '">Probabilidad de la pista ' + i + '</label></div>';
-                avionesPista += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="Aviones en la pista ' + i + '" required autofocus><label for="num' + i + '">Aviones en la pista ' + i + '</label></div>';
+                probabilidadPista += '<div class="form-label-group"> <input type="text" id="pista' + i + '" class="form-control" placeholder="Probabilidad de la pista ' + i + '" required autofocus><label for="pista' + i + '">Probabilidad de la pista ' + i + '</label></div>';
+                avionesPista += '<div class="form-label-group"> <input type="text" id="avion' + i + '" class="form-control" placeholder="Aviones en la pista ' + i + '" required autofocus><label for="avion' + i + '">Aviones en la pista ' + i + '</label></div>';
             }
             document.getElementById("probabilidades").innerHTML = probabilidadPista;
             document.getElementById("avionesPista").innerHTML = avionesPista;
@@ -39,7 +39,6 @@ function generateBoxes()
 
 function getValues()
 {
-
     calculate(x,p);
 }
 
