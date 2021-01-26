@@ -46,8 +46,8 @@ function getValues()
 function calculate(x,p) {
     let denominador = 1;
     let probabilidad = 1;
-    let n = parseInt(document.getElementById("n").value);
-    let pistas = parseInt(document.getElementById("pistas").value,10);
+    let n = parseInt(document.getElementById("totalPlanes").value);
+    let pistas = parseInt(document.getElementById("numberAirstrip").value);
     for(var i=0;i<pistas;i++)
     {
         denominador*=factorial(x[i]);
