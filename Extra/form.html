@@ -47,23 +47,28 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">Ingresa Datos</h5>
                         <form class="form-signin">
-
                             <div class="form-label-group">
-                                <input type="text" id="x" class="form-control" placeholder="x"required autofocus>
-                                <label for="x">x</label>
+                                <input type="text" id="totalPlanes" class="form-control" placeholder="N&uacute;mero total de aviones"
+                                    required autofocus>
+                                <label for="totalPlanes">N&uacute;mero total de aviones</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="text" id="n" class="form-control" placeholder="n"required autofocus>
-                                <label for="n">n</label>
+                                <input type="text" id="numberAirstrip" class="form-control" placeholder="N&uacute;mero de pistas"
+                                    required autofocus>
+                                <label for="numberAirstrip">N&uacute;mero de pistas</label>
                             </div>
 
-                            <div class="form-label-group">
-                                <input type="text" id="p" class="form-control" placeholder="p"required autofocus>
-                                <label for="p">p</label>
+                            <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" onclick="generateBoxes()">Genera casillas para las pistas</button>
+
+                            <hr>
+
+                            <div class="form-label-group" id="probabilidades">
                             </div>
 
                             <hr>
+                            <div class="form-label-group" id = "avionesPista">
+                            </div>
                             
                             <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" onclick="calculate()"> Calcular </button>
 
@@ -71,10 +76,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="container">
-            <canvas id="myChart"></canvas>
         </div>
     </div>
 

@@ -9,51 +9,57 @@ function validate(n, msj) {
     return true;
 }
 
-
-function calculate() {  
-    let x = document.getElementById("x").value;
-    let n = document.getElementById("n").value;
-    let p = document.getElementById("p").value;
-    let q = 1 - p;
-    let answer = [];   
-    if (validate(x, "Dato x invalido") && validate(n, "Dato n invalido") && validate(p, "Dato p invalido") && validate(q, "p debe estar entre 0 y 1") && validate(n - x, "x debe ser menor o igual a n")) {
-        let sum = 0;
-        for (let i = 0; i <= n; i++) {
-            let bi = combinatorial(n,i) * Math.pow(p, i) * Math.pow(q, n - i);
-            answer.push(bi);
-            sum += bi;
-        }
-        //alert("valores (bi) de 0 hasta n " + answer );
-        //alert("valor (bi) en x " + answer[x]);
-        swal({
-            icon: "success",
-            title: answer[x]
-        })
-        //alert("suma de todas las (bi)  " + sum);
-        
-        // pruebas con mychart
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: answer,
-                datasets: [{
-                    label: 'Probability',
-                    data: answer,
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+function generateBoxes()
+{
+    let totalfeilds = document.getElementById("numberAirstrip").value;
+    if (validate(totalfeilds) === true) {
+        if (totalfeilds > 0) {
+            swal({
+                icon: "info",
+                title: "El num. de casillas a generar es " + totalfeilds
+            })
+            let probabilidadPista = "";
+            let avionesPista = "";
+            let i;
+            for (i = 1; i <= totalfeilds; i++) {
+                probabilidadPista += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="Probabilidad de la pista ' + i + '" required autofocus><label for="num' + i + '">Probabilidad de la pista ' + i + '</label></div>';
+                avionesPista += '<div class="form-label-group"> <input type="text" id="num' + i + '" class="form-control" placeholder="Aviones en la pista ' + i + '" required autofocus><label for="num' + i + '">Aviones en la pista ' + i + '</label></div>';
             }
-        });
+            document.getElementById("probabilidades").innerHTML = probabilidadPista;
+            document.getElementById("avionesPista").innerHTML = avionesPista;
+        }
+        else {
+            swal({
+                icon: "error",
+                title: "El num. de casillas debe ser mayor  a 0"
+            })
+        }
     }
+}
+
+function getValues()
+{
+
+    calculate(x,p);
+}
+
+function calculate(x,p) {
+    let denominador = 1;
+    let probabilidad = 1;
+    let n = parseInt(document.getElementById("n").value);
+    let pistas = parseInt(document.getElementById("pistas").value,10);
+    for(var i=0;i<pistas;i++)
+    {
+        denominador*=factorial(x[i]);
+        probabilidad*=Math.pow(p[i],x[i]);
+    }
+    n = n / denominador;
+    probabilidad = probabilidad * n;
+    swal(
+        {
+            icon: "succes",
+            text:"La probabilidad es : "+ probabilidad
+    });
 }
 
 function combinatorial(n, k) {
