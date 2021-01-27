@@ -45,6 +45,7 @@ function getValues()
         let planeID = "plane" + i.toString();
         let currentPlane = eval(document.getElementById(planeID).value);
         let currentAirstrip = eval(document.getElementById(airstripID).value);
+        console.log(i+" "+currentPlane,currentAirstrip);
         if (0 <= currentAirstrip && currentAirstrip <= 1) {
             if (currentPlane >= 0) {
                 x.push(currentPlane);
@@ -81,11 +82,15 @@ function calculate(x,p) {
     let probabilidad = 1;
     let n = parseInt(document.getElementById("totalPlanes").value);
     let pistas = parseInt(document.getElementById("numberAirstrip").value);
+    n = factorial(n);
     for(var i=0;i<pistas;i++)
     {
         denominador*=factorial(x[i]);
+        console.log(Math.pow(p[i],x[i]));
         probabilidad*=Math.pow(p[i],x[i]);
     }
+    console.log(denominador);
+    console.log(probabilidad);
     n = n / denominador;
     probabilidad = probabilidad * n;
     swal(
